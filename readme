@@ -1,0 +1,18 @@
+<h1>Serenity BDD test</h1>
+<h3>Pre-Installed Softwares :</h3>
+
+- Software download : IntelliJ IDEA Community Edition 2021.3, Maven, JDK 16
+
+<h3>Installation instructions</h3>
+- Install all software download
+- Setup environment variables : JAVE_HOME, maven
+- Install plugins in IntelliJ : Cucumber for Java, Gherkin, SonarLint (check code)
+
+<h3>Execute test command:</h3>
+
+Move to folder run test with Win commands:
+```cd web```
+- Run test all feature with environment :
+  ```mvn clean verify -Denvironment=staging```
+- Run test command with environment and Tagname :
+  ```mvn clean verify -Denvironment=dev -Dtags="@Login"```
