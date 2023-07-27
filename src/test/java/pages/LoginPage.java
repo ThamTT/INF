@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 
+import java.lang.annotation.Target;
+
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class LoginPage extends ElementLoginPage {
@@ -23,14 +25,18 @@ public class LoginPage extends ElementLoginPage {
     String user = "";
     String pass = "";
     if(role.equals("OPS")){
-      user = commonPage.environmentVariables.getProperty("role.ops.account");
-      pass = commonPage.environmentVariables.getProperty("role.ops.password");
+      user = commonPage.environmentVariables.getProperty("role.ops20.account");
+      pass = commonPage.environmentVariables.getProperty("role.ops20.password");
     }
-    commonPage.enterValueIntoField(username, user);
-    commonPage.enterValueIntoField(password, pass);
+    commonPage.inputValueIntoField(username, user);
+    commonPage.inputValueIntoField(password, pass);
   }
 
   public void clickBtnLogin() {
     commonPage.clickElement(btnLogin);
+  }
+
+  public void verifyLogin(String text) {
+    commonPage.validateMessage(messageSuccess, text);
   }
 }

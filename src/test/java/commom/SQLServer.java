@@ -24,6 +24,7 @@ public class SQLServer {
         return conn1;
     }
     public static List<HashMap<String, String>> executeQuery(String queryString) throws SQLException {
+        connectDatabase();
         System.out.println("Querying to db with command \""  + queryString + '"');
         Statement statement = conn1.createStatement();
         ResultSet result = statement.executeQuery(queryString);
@@ -53,10 +54,12 @@ public class SQLServer {
         conn1 = null;
     }
 
-    public static void main(String[] args) throws SQLException {
-        connectDatabase();
-        SQLServer sqlServer = new SQLServer();
-        List<HashMap<String, String>> data =  sqlServer.executeQuery("SELECT * FROM \"profile_v2\".\"collector\" LIMIT 1000 OFFSET 0");
-        System.out.println(data);
-    }
+//    public static void main(String[] args) throws SQLException {
+////        connectDatabase();
+//        SQLServer sqlServer = new SQLServer();
+//        List<HashMap<String, String>> data =  sqlServer.executeQuery("SELECT count(\"old_id\") FROM \"profile_v2\".\"collector\" LIMIT 1000 OFFSET 0");
+//        List<HashMap<String, String>> sl =  sqlServer.executeQuery("SELECT count(\"id\") FROM \"profile_v2\".\"collector_limits_fluctuations\"");
+//        System.out.println(data);
+//        System.out.println(sl);
+//    }
 }

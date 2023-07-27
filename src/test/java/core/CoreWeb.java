@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
-public class ElementBase extends PageObject {
+public class CoreWeb extends PageObject {
   public WebElementFacade findElement(String locator) {
     return $(By.xpath(locator));
   }

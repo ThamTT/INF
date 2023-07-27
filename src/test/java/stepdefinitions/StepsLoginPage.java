@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.*;
 import net.thucydides.core.annotations.Steps;
@@ -32,5 +33,10 @@ public class StepsLoginPage {
   @And("User click login button")
   public void userClickLoginButton() {
     loginPage.clickBtnLogin();
+  }
+
+  @Then("Verify login successfully with message {string}")
+  public void verifyLoginSuccessfully(String text) {
+    loginPage.verifyLogin(text);
   }
 }
