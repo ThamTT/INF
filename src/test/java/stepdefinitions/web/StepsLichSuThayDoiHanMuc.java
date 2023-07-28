@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.web;
 
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;

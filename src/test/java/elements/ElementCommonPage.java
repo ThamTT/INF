@@ -6,6 +6,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
 public class ElementCommonPage extends CoreWeb {
     public WebElementFacade elementTextDynamic(String title) {
         String txtFlag = String.format("//*[normalize-space(text()) = '%s']", title);
@@ -38,5 +42,19 @@ public class ElementCommonPage extends CoreWeb {
         return Target.the("dynamic element with attribute")
                 .locatedBy("//*[normalize-space(@"+ att +") = '" + text + "']");
     }
+    public static final Target phanTrang = Target.the("Phan Trang")
+            .locatedBy("//*[@class  = 'ant-select-selector']");
+    public static Target phanTrangNumber(String number) {
+        return Target.the("dynamic element with attribute")
+                .locatedBy("//*[@role= 'option']/div[text() = '"+number+" / page']");
+    }
+    public static final Target trRecord = Target.the("so luong reocord trong bang")
+            .locatedBy("//table//tr[@data-row-key]");
+    public static List<WebElementFacade> trRecords() {
+        return Target.the("so luong reocord trong bang")
+                .locatedBy("//table//tr[@data-row-key]").resolveAllFor(theActorInTheSpotlight());
+    }
 
+    public static final Target record1 = Target.the("so luong reocord trong bang")
+            .locatedBy("(//*[text() = 'Chi tiết '])[1]");
 }

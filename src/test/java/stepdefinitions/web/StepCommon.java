@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.web;
 
 
 import io.cucumber.datatable.DataTable;
@@ -54,5 +54,25 @@ public class StepCommon {
                 commonPage.verifyTextDisplay(item);
             }
         }
+    }
+
+    @And("Select {string} item on one page")
+    public void selectItemOnOnePage(String number) {
+        commonPage.selectPartition(number);
+    }
+
+    @And("Get number of record in the table")
+    public void getNumberOfRecordInTheTable() {
+        commonPage.getNumberRecordInTable();
+    }
+
+    @Then("Verify records in the list")
+    public void verifyRecordsInTheList() {
+        commonPage.verifyPagination();
+    }
+
+    @And("Click chi tiet record1")
+    public void clickChiTietRecord() {
+        commonPage.clickChiTiet1();
     }
 }

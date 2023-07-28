@@ -32,3 +32,16 @@ Feature: UI Lich su thay doi han muc
     And Go to menu
       | Lịch sử thay đổi hạn mức |
     Then Verify so luong ban ghi
+
+  @LSHM_003
+  Scenario: Kiem tra phan trang
+    Given "Actor" Navigate successfully to Login Page on "staging"
+    When Input valid account with "OPS" role
+    And User click login button
+    Then Verify login successfully with message "Chào mừng bạn đến với Innofin."
+    When Go to menu
+      | Lịch sử thay đổi hạn mức |
+    And Select "10" item on one page
+    And Click chi tiet record1
+    And Get number of record in the table
+    Then Verify records in the list

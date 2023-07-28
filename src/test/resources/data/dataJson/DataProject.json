@@ -1,0 +1,15 @@
+{
+  "takeRequest": {
+    "body": {
+      "collectorId": "$collectorId",
+      "cashCollectionId": "$cashCollectionId"
+    }
+  },
+  "validAccount" : {
+    "body": {
+      "username": "0988068463",
+      "password": "Abc@123",
+      "appCode": "INF-APP"
+    }
+  }
+}
