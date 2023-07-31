@@ -20,14 +20,9 @@ public class CoreAPI {
     protected static final ObjectMapper objectMapper = new ObjectMapper();
     private String pathFile = System.getProperty("user.dir") + "/src/test/resources/data/dataJson/";
 
-    public Response sendRequest(String endpoint, String method, Object obj, String apiKey) {
+    public Response sendRequest(String endpoint, String method, Object obj) {
         RequestSpecification httpRequest = SerenityRest.given();
-        if (apiKey.equalsIgnoreCase("yes")) {
             httpRequest.header("Content-Type", "application/json");
-        } else {
-            httpRequest.header("Content-Type", "application/json");
-        }
-
         switch (method.toUpperCase()) {
             case "GET":
                 return httpRequest.get(endpoint);
@@ -92,16 +87,12 @@ public class CoreAPI {
 
         List<String> results = new ArrayList<>();
         params.forEach((k, v) -> results.add(k.trim() + "=" + v.trim()));
-        System.out.println("result = " + String.join("&", results));
         endpoint = endpoint + "?" + String.join("&", results);
-
+        System.out.println("endPoind = " + endpoint);
         RequestSpecification httpRequest = SerenityRest.given();
         if (apiKey.equalsIgnoreCase("yes")) {
             httpRequest.header("Content-Type", "application/json");
-            httpRequest.header("Authorization", authorizationHeader);
-        } else {
-            httpRequest.header("Content-Type", "application/json");
-            httpRequest.header("Authorization", authorizationHeader);
+            httpRequest.header("Authorization", "Bearer " + authorizationHeader);
         }
 
         switch (method.toUpperCase()) {

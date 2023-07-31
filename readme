@@ -15,4 +15,4 @@ Move to folder run test with Win commands:
 - Run test all feature with environment :
   ```mvn clean verify -Denvironment=staging```
 - Run test command with environment and Tagname :
-  ```mvn clean verify -Denvironment=dev -Dtags="@Login"```
+  ```mvn clean verify -Denvironment=staging -Dtags="@Login"```
